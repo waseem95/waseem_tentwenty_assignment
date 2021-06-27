@@ -9,7 +9,7 @@ This is an android kotlin project used
 
 
 
-![preview]((http://i.imgur.com/Ssfp7.gif/preview.gif)
+![preview]((http://i.imgur.com/preview.gif)
 
 
 ## Using Retrofit to Retrieve and Display Data with REST API
