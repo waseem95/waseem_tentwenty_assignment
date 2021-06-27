@@ -9,7 +9,7 @@ This is an android kotlin project used
 
 
 
-![lab3-resized](preview.gif)
+![preview](preview.gif)
 
 
 ## Using Retrofit to Retrieve and Display Data with REST API
