@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='retrofit-tutorial'
+rootProject.name='TenTwentyTask'
