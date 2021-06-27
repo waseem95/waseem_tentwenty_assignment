@@ -8,6 +8,11 @@ This is an android kotlin project used
 4. Use [ConstraintLayout](https://developer.android.com/training/constraint-layout) for responsive layout
 
 
+
+![lab3-resized](preview.gif)
+
+
+
 ## Using Retrofit to Retrieve and Display Data with REST API
 
 App features:
