@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         moviesViewModel!!.moviesRepository?.observe(this, { movieResponse: MovieResponse ->
             val movies = movieResponse.results
             movieList.addAll(movies!!)
-            mainProgress.setVisibility(View.GONE)
+            mainProgress.visibility = View.GONE
             mMovieAdapter!!.notifyDataSetChanged()
         } as (MovieResponse?) -> Unit)
         initRecycler()
@@ -49,13 +49,13 @@ class MainActivity : AppCompatActivity() {
             mMovieAdapter = MovieListAdapter(this@MainActivity, movieList)
             val linearLayoutManager = LinearLayoutManager(this)
             val dividerItemDecoration = DividerItemDecoration(
-                mRecyclerView.getContext(),
+                mRecyclerView.context,
                 linearLayoutManager.orientation
             )
             mRecyclerView.addItemDecoration(dividerItemDecoration)
-            mRecyclerView.setLayoutManager(LinearLayoutManager(this))
+            mRecyclerView.layoutManager = LinearLayoutManager(this)
             mMovieAdapter = MovieListAdapter(this@MainActivity, movieList)
-            mRecyclerView.setAdapter(mMovieAdapter)
+            mRecyclerView.adapter = mMovieAdapter
         } else {
             mMovieAdapter!!.notifyDataSetChanged()
         }

@@ -8,7 +8,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MovieRepository {
-    private val movieApiService: MovieApiService
+    private val movieApiService: MovieApiService = RetrofitService.cteateService(MovieApiService::class.java)
     fun getUpcomingMovie(API_key: String?): MutableLiveData<MovieResponse?> {
         val moviesData = MutableLiveData<MovieResponse?>()
         movieApiService.getMovie(API_key)!!.enqueue(object : Callback<MovieResponse?> {
@@ -40,7 +40,4 @@ class MovieRepository {
             }
     }
 
-    init {
-        movieApiService = RetrofitService.cteateService(MovieApiService::class.java)
-    }
 }

@@ -37,6 +37,7 @@ class MovieDetailActivity : Activity() {
     private var posterImage: ImageView? = null
     private var watchTrailer: Button? = null
     private fun loadTrailerData() {
+        // creating connection
         try {
             if (retrofit == null) {
                 retrofit = Retrofit.Builder()
@@ -54,7 +55,7 @@ class MovieDetailActivity : Activity() {
                     response: Response<TrailerResponse>?
                 ) {
                     val trailer = response?.body()!!.results
-                    videoKey = trailer!![0].key
+                    videoKey = trailer!![0].key   // currently i am playing one video only
                 }
 
                 override fun onFailure(call: Call<TrailerResponse>?, t: Throwable?) {
@@ -90,7 +91,7 @@ class MovieDetailActivity : Activity() {
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("http://www.youtube.com/watch?v=$videoKey")
+                        Uri.parse("http://www.youtube.com/watch?v=$videoKey")  // as tmdb provides youtube links only so i am playing on youtube
                     )
                 )
                 Log.i("Video", "Video Playing....")
