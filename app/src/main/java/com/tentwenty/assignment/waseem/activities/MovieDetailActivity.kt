@@ -55,7 +55,6 @@ class MovieDetailActivity : Activity() {
                 ) {
                     val trailer = response?.body()!!.results
                     videoKey = trailer!![0].key
-                    Log.d("keystes123", "onResponse: details " + trailer[0].key)
                 }
 
                 override fun onFailure(call: Call<TrailerResponse>?, t: Throwable?) {

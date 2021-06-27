@@ -21,15 +21,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var movieList: ArrayList<Movie>
     private lateinit var mainProgress: ProgressBar
     private var moviesViewModel: MoviesViewModel? = null
+
     companion object {
         val TAG = MainActivity::class.java.simpleName
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mainProgress = findViewById(R.id.main_progressBar)
         movieList = ArrayList()
-        //        connect();
         moviesViewModel = ViewModelProviders.of(this).get(MoviesViewModel::class.java)
         moviesViewModel!!.init()
         moviesViewModel!!.moviesRepository?.observe(this, { movieResponse: MovieResponse ->
@@ -59,36 +60,4 @@ class MainActivity : AppCompatActivity() {
             mMovieAdapter!!.notifyDataSetChanged()
         }
     }
-    //    private void connect() {
-
-    //        if (retrofit == null) {
-    //            retrofit = new Retrofit.Builder()
-    //                    .baseUrl(BASE_URL)
-    //                    .addConverterFactory(GsonConverterFactory.create())
-    //                    .build();
-    //        }
-    //        MovieApiService movieApiService = retrofit.create(MovieApiService.class);
-    //        Call<MovieResponse> call = movieApiService.getMovie(API_KEY);
-    //        call.enqueue(new Callback<MovieResponse>() {
-    //            @Override
-    //            public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
-    //                mainProgress.setVisibility(View.GONE);
-    //                Log.d("res123", "onResponse: " + new Gson().toJson(response.body()));
-    //                movieList = response.body().getResults();
-    //                Log.d("res123", "onResponse: " + movieList.size());
-    //
-    //
-    //                initRecycler();
-    //
-    //            }
-    //
-    //            @Override
-    //            public void onFailure(Call<MovieResponse> call, Throwable throwable) {
-    //                Log.e(TAG, throwable.toString());
-    //                mainProgress.setVisibility(View.GONE);
-    //                Toast.makeText(MainActivity.this, "Something went wrong " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
-    //            }
-    //        });
-    //    }
-
 }
