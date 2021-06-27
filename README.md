@@ -12,6 +12,7 @@ This is an android kotlin project used
 ![preview](preview.gif)
 
 
+
 ## Using Retrofit to Retrieve and Display Data with REST API
 
 App features:
